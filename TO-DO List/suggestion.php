@@ -109,18 +109,26 @@ if(isset($_POST["addOne"])){
   <!-- OVERLAY ON TOP OF THE PAGE -->
         <div class="overlay">
          <div class="modal">
-             <?php
+ <?php
              
-             //creates random number from 0 to size of your database items.
-             $random= rand(0,count($items)-1);
+             
+             $random= rand(0,count($items));
              //var_dump($random);
              
              ?>
              <h1 class="modal__title">My Suggestion &#x1f609;</h1>
              
              <?php
-                //suggest random task to user. 
-                echo "<p class='modal__body'>" .$items[$random]["action"]. "</p>";
+             
+             $id=0;
+             foreach($items as $std){
+                 $id++;
+                 //var_dump($id);
+                 if($id==$x){
+                    echo "<p class='modal__body'>" .$std["action"]. "</p>";
+                }
+             }
+           
              ?>
 
              <a class="button" href="index.php">OK</a>
