@@ -1,7 +1,7 @@
 # TO DO List
 
 
-TO-DO list is a web app that manage your daily tasks.
+TO-DO list is a web app that helps you to manage your daily tasks.
 
   - Tasks come from database.
   - User can add & delete the tasks.
