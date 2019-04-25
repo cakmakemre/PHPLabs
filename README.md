@@ -7,5 +7,5 @@ CTIS 256 Labs
 # TODO List
 <img width="518" alt="Ekran Resmi 2019-04-25 18 35 26" src="https://user-images.githubusercontent.com/16281631/56748677-f11e0380-6788-11e9-8c11-2064b49e964d.png">
 
-# S G A
+# S G S
 <img width="631" alt="Ekran Resmi 2019-04-25 18 35 10" src="https://user-images.githubusercontent.com/16281631/56748678-f11e0380-6788-11e9-8ed4-10ecbf11e7a7.png">
