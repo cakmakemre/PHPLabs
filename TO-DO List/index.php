@@ -60,7 +60,16 @@ if(isset($_POST["addOne"])){
             </div>
             <div class="container">
                 <div>
-                    <a href="suggestion.php" class="big-button">What should I do?</a>
+                    <?php
+                    //If list is empty, suggestion button will be disabled
+                      if(count($items)==0){
+                        echo "<a class='big-button-disabled'> What should I do?</a>";
+
+                        
+                    }else{
+                    echo "<a href='index2.php' class='big-button'>What should I do?</a>";
+                    }
+                    ?>
                 </div>
                 
                 <div class="widget">
