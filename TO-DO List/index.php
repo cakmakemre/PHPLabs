@@ -67,7 +67,7 @@ if(isset($_POST["addOne"])){
 
                         
                     }else{
-                    echo "<a href='index2.php' class='big-button'>What should I do?</a>";
+                    echo "<a href='suggestion.php' class='big-button'>What should I do?</a>";
                     }
                     ?>
                 </div>
