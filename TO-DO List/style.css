@@ -12,13 +12,7 @@ html {
     text-decoration: none;
     text-align: center;
   }
-  
-  a.disabled {
-    cursor: default; 
-    pointer-events: none;
-    opacity: .5;
-  }
-  
+
   .big-button {
     background: #8357c5;
     border: none;
@@ -31,6 +25,22 @@ html {
     padding: 2.4rem 0;
   }
   
+.big-button-disabled{
+    background: #8357c5;
+    border: none;
+    border-bottom: 0.6rem solid #693cad;
+    color: white;
+    font-weight: bold;
+    font-size: 3.2rem;
+    width: 100%;
+    margin-bottom: 4.8rem;
+    padding: 2.4rem 0;
+    cursor: default; 
+    pointer-events: none;
+    opacity: .5;
+  }
+  
+
     
   .button {
     background: #8357c5;
