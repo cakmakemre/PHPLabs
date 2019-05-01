@@ -5,7 +5,7 @@ TO-DO list is a web app that helps you to manage your daily tasks.
 
   - Tasks come from database.
   - User can add & delete the tasks.
-  - Even this app can randomly suggest a task to do.
+  - App can randomly suggest a task to do.
 
 
 <img width="771" alt="Ekran Resmi 2019-04-25 18 18 13" src="https://user-images.githubusercontent.com/16281631/56748171-09415300-6788-11e9-8f19-c83a644dffff.png">
