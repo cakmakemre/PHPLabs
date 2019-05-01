@@ -1,4 +1,4 @@
-# TO DO List
+# CTIS 256 II. Mıdterm Question - TO DO List
 
 
 TO-DO list is a web app that helps you to manage your daily tasks.
