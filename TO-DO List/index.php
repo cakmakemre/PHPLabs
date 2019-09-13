@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+//php starts
 <?php
 
 require 'db.php';
