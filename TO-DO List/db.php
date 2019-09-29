@@ -1,5 +1,6 @@
 <?php
 //db operations
+//gitDesktop 
 try {
        $db = new PDO("mysql:host=localhost;dbname=test;charset=utf8mb4", "mamp", "");
        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION) ;
