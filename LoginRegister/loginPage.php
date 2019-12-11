@@ -1,3 +1,33 @@
+<?php
+include 'db.php';
+
+if($_POST["btnSignin"]){
+
+    extract($_POST);
+
+    $error= "";
+    $succes="";
+        try {
+        $sql="select * from loginTable where email=?";
+        $stmt=$db->prepare($sql);
+        $stmt->execute([$mail]);
+    
+        $userInfo=$stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($userInfo["password"]==$pass){
+            $succes= "Başarıyla giriş yaptınız.";
+            //header("Location: index.php");
+
+        }else{
+            $error="Parolalar uyuşmuyor.";
+        }
+    } catch (Exception $ex) {
+        echo $ex->getMessage();
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +51,7 @@
         <div class="signin-content">
             <div class="signin-image">
                 <figure><img src="images/signin-image.jpg" alt="sing up image"></figure>
-                <a href="#" class="signup-image-link">Hesap oluştur</a>
+                <a href="registerPage.php" class="signup-image-link">Hesap oluştur</a>
             </div>
 
             <div class="signin-form">
@@ -29,28 +59,30 @@
                 <form method="POST" class="register-form" id="login-form">
                     <div class="form-group">
                         <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text" name="your_name" id="your_name" placeholder="İsim"/>
+                        <input type="text" name="mail" id="your_name" placeholder="Mail"/>
                     </div>
                     <div class="form-group">
                         <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                        <input type="password" name="your_pass" id="your_pass" placeholder="Parola"/>
+                        <input type="password" name="pass" id="your_pass" placeholder="Parola"/>
                     </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                        <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                    </div>
+                    <div>
+                                <! –– Error varsa gösterelim ––>
+                                <?php
+                                if (isset($error)){
+                                    echo $error;
+                                } 
+                                if (isset($succes)){
+                                    echo $succes;
+                                } 
+                                
+                                ?>
+                            
+                            </div>
                     <div class="form-group form-button">
-                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                        <input type="submit" name="btnSignin" id="signin" class="form-submit" value="Log in"/>
                     </div>
                 </form>
-                <div class="social-login">
-                    <span class="social-label">Or login with</span>
-                    <ul class="socials">
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>
