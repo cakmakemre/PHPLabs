@@ -5,9 +5,7 @@ $error='';
 $succes='';
 if($_POST["btnSubmit"]){
     extract($_POST);
-    //var_dump($_POST);
-    //1-array(5) { ["name"]=> string(4) "Emre" ["email"]=> string(14) "last@gmail.com" 
-    //2-["pass"]=> string(6) "123123" ["re_pass"]=> string(5) "12321" ["btnSubmit"]=> string(9) "Kayıt Ol" }
+ 
     if($pass==$re_pass){
         try {
             //sql queries
