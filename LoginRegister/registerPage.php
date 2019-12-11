@@ -1,3 +1,32 @@
+<?php
+include 'db.php';
+
+$error='';
+$succes='';
+if($_POST["btnSubmit"]){
+    extract($_POST);
+    //var_dump($_POST);
+    //1-array(5) { ["name"]=> string(4) "Emre" ["email"]=> string(14) "last@gmail.com" 
+    //2-["pass"]=> string(6) "123123" ["re_pass"]=> string(5) "12321" ["btnSubmit"]=> string(9) "Kayıt Ol" }
+    if($pass==$re_pass){
+        try {
+            //sql queries
+            $sql = "insert into loginTable (name,email,password) values(?,?,?)";
+            $stmt = $db->prepare($sql);
+            $stmt->execute([$name,$email,$pass]);
+            $succes="Başarıyla üye oldunuz efenim";
+
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+        }
+    }else{
+        $error= "Parolalar uyuşmuyor balım!";
+    }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,15 +68,27 @@
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="re_pass" id="re_pass" placeholder="Parolanızı tekrar girin"/>
                             </div>
-                           
+                            <div>
+                                <! –– Error varsa gösterelim ––>
+                                <?php
+                                if (isset($error)){
+                                    echo $error;
+                                } 
+                                if (isset($succes)){
+                                    echo $succes;
+                                } 
+                                
+                                ?>
+                            
+                            </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Kayıt Ol"/>
+                                <input type="submit" name="btnSubmit" id="signup" class="form-submit" value="Kayıt Ol"/>
                             </div>
                         </form>
                     </div>
                     <div class="signup-image">
                         <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
-                        <a href="#" class="signup-image-link">Zaten Üyeyim</a>
+                        <a href="loginPage.php" class="signup-image-link">Zaten Üyeyim</a>
                     </div>
                 </div>
             </div>
